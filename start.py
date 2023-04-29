@@ -308,11 +308,132 @@ class Program:
                 time.sleep(2)
                 self.menu()
         input('Naciśnij ENTER aby wrócić do menu.')
-
+        self.menu()
     # --------------------------------------------------------------------------------
     def usun(self):
-        pass
+        os.system('cls')
+        print('Usuwanie rekordów')
+        print('\n')
+        self.usuwanie = input('Podaj dane do usunięcia (imie, nazwisko, pesel, tel komórkowy, email: ')
+        # sprawdz czy podano dane do usunięcia
+        if self.usuwanie == '':
+            print('Nie podano danych do usunięcia!')
+            time.sleep(2)
+            self.usun()
+        else:
+            # sprawdź czy podano imię
+            if self.usuwanie in df['imie'].values:
+                print('Wyniki wyszukiwania dla imienia: ' + self.usuwanie)
+                print('\n')
+                # wyszukaj imię
+                for i in range(len(df)):
+                    if df.loc[i][1] == self.usuwanie:
+                        print(df.loc[i])
+                        print('\n')
+                # zapytaj czy usunąć rekord
+                self.usun_rekord = input('Czy usunąć rekord? (t/n): ')
+                if self.usun_rekord == 't':
+                    # usuń rekord
+                    df.drop(df.index[i], inplace=True)
+                    # zapisz DataFrame do pliku
+                    df.to_csv('baza_danych.csv')
+                    print('Rekord został usunięty!')
+                    time.sleep(2)
+                    self.menu()
+                else:
+                    self.menu()
+            # sprawdź czy podano nazwisko
+            elif self.usuwanie in df['nazwisko'].values:
+                print('Wyniki wyszukiwania dla nazwiska: ' + self.usuwanie)
+                print('\n')
+                # wyszukaj nazwisko
+                for i in range(len(df)):
+                    if df.loc[i][2] == self.usuwanie:
+                        print(df.loc[i])
+                        print('\n')
+                # zapytaj czy usunąć rekord
+                self.usun_rekord = input('Czy usunąć rekord? (t/n): ')
+                if self.usun_rekord == 't':
+                    # usuń rekord
+                    df.drop(df.index[i], inplace=True)
+                    # zapisz DataFrame do pliku
+                    df.to_csv('baza_danych.csv')
+                    print('Rekord został usunięty!')
+                    time.sleep(2)
+                    self.menu()
+                else:
+                    self.menu()
+            # sprawdź czy podano pesel
+            elif self.usuwanie in df['pesel'].values:
+                print('Wyniki wyszukiwania dla peselu: ' + self.usuwanie)
+                print('\n')
+                # wyszukaj pesel
+                for i in range(len(df)):
+                    if df.loc[i][3] == self.usuwanie:
+                        print(df.loc[i])
+                        print('\n')
+                # zapytaj czy usunąć rekord
+                self.usun_rekord = input('Czy usunąć rekord? (t/n): ')
+                if self.usun_rekord == 't':
+                    # usuń rekord
+                    df.drop(df.index[i], inplace=True)
+                    # zapisz DataFrame do pliku
+                    df.to_csv('baza_danych.csv')
+                    print('Rekord został usunięty!')
+                    time.sleep(2)
+                    self.menu()
+                else:
+                    self.menu()
+            # sprawdź czy podano numer telefonu komórkowego
+            elif self.usuwanie in df['tel_komorkowy'].values:
+                print('Wyniki wyszukiwania dla numeru telefonu komórkowego: ' + self.usuwanie)
+                print('\n')
+                # wyszukaj numer telefonu komórkowego
+                for i in range(len(df)):
+                    if df.loc[i][12] == self.usuwanie:
+                        print(df.loc[i])
+                        print('\n')
+                # zapytaj czy usunąć rekord
+                self.usun_rekord = input('Czy usunąć rekord? (t/n): ')
+                if self.usun_rekord == 't':
+                    # usuń rekord
+                    df.drop(df.index[i], inplace=True)
+                    # zapisz DataFrame do pliku
+                    df.to_csv('baza_danych.csv')
+                    print('Rekord został usunięty!')
+                    time.sleep(2)
+                    self.menu()
+                else:
+                    self.menu()
+            # sprawdź czy podano adres email
+            elif self.usuwanie in df['email'].values:
+                print('Wyniki wyszukiwania dla adresu email: ' + self.usuwanie)
+                print('\n')
+                # wyszukaj adres email
+                for i in range(len(df)):
+                    if df.loc[i][13] == self.usuwanie:
+                        print(df.loc[i])
+                        print('\n')
+                # zapytaj czy usunąć rekord
+                self.usun_rekord = input('Czy usunąć rekord? (t/n): ')
+                if self.usun_rekord == 't':
+                    # usuń rekord
+                    df.drop(df.index[i], inplace=True)
+                    # zapisz DataFrame do pliku
+                    df.to_csv('baza_danych.csv')
+                    print('Rekord został usunięty!')
+                    time.sleep(2)
+                    self.menu()
+                else:
+                    self.menu()
+            else:
+                print('Nie znaleziono rekordów!')
+                time.sleep(2)
+                self.menu()
 
-
+        input('Naciśnij ENTER aby wrócić do menu.')
+        self.menu()
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
 # start programu
 Program()
