@@ -215,21 +215,19 @@ class Program:
             self.dodaj()
         else:
             self.menu()
-
-
-
+# --------------------------------------------------------------------------------
     def wyswietl(self):
         os.system('cls')
         print('Wyświetlanie wszystkich rekordów')
         print('\n')
         data = []
-        self.header = ['data', 'imie', 'nazwisko', 'pesel','wiek', 'miasto', 'kod', 'ulica', 'nr_budynku',
+        self.header = ['data zapisu', 'imie', 'nazwisko', 'pesel','wiek', 'pleć', 'miasto', 'kod', 'ulica', 'nr_budynku',
                        'nr_mieszkania', 'tel_stacjonarny', 'tel_komórkowy', 'email', 'dodatkowe_informacje']
         # wyświetl DataFrame w tabeli texttable
         for i in range(len(df)):
             dane_tabeli = [df.loc[i][0], df.loc[i][1], df.loc[i][2], df.loc[i][3], df.loc[i][4], df.loc[i][5],
                            df.loc[i][6], df.loc[i][7], df.loc[i][8], df.loc[i][9], df.loc[i][10], df.loc[i][11],
-                           df.loc[i][12], df.loc[i][13]]
+                           df.loc[i][12], df.loc[i][13], df.loc[i][14]]
             data.append(dane_tabeli)
         table = termtables.to_string(data, header=self.header)
         print(table)
