@@ -1,3 +1,9 @@
+'''
+Program do zarządzania bazą danych
+autor: Slavo Heys
+
+'''
+
 import pandas as pd
 import os
 import time
